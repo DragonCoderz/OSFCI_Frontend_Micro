@@ -1,46 +1,54 @@
+$(document).ready( function () {
+	navbarHover();
+	$('#myModal').modal('show');	
+	loginBtn();
+  });
+
+
+
 function navbarHover() {
-var masterTimeout;
-$('#dropdownMaster').on('mouseover', function(e) {
-    var dropdown = $(e.target);
-    var menu = $('#menuMaster');
-    dropdown.addClass('show');
-    menu.addClass('show');
-});
+	var masterTimeout;
+	$('#dropdownMaster').on('mouseover', function(e) {
+		
+		var dropdown = $(e.target);
+		var menu = $('#menuMaster');
+		dropdown.addClass('show');
+		menu.addClass('show');
+	});
 
-$('#dropdownMaster').on('mouseout', function(e) {
-	console.log("test")
-    var dropdown = $(e.target);
-    var menu = $('#menuMaster');
-    setTimeout(function () {
-    	if ( !($('#dropdownSecondary').is(':hover')) ) {
-		if ( !($('#dropdownMaster').is(':hover')) ) {
-		    	 dropdown.removeClass('show');
-			 menu.removeClass('show');
-			 $('#navbarDropdownMenuLink').removeClass('show');
+	$('#dropdownMaster').on('mouseout', function(e) {h
+		var dropdown = $(e.target);
+		var menu = $('#menuMaster');
+		setTimeout(function () {
+			if ( !($('#dropdownSecondary').is(':hover')) ) {
+			if ( !($('#dropdownMaster').is(':hover')) ) {
+					dropdown.removeClass('show');
+				menu.removeClass('show');
+				$('#navbarDropdownMenuLink').removeClass('show');
+			}
+			}
+		
+		}, 300);
+	});
+
+	$('#dropdownSecondary').on('mouseover', function(e) {
+		clearTimeout(masterTimeout);
+		var dropdown = $(e.target);
+		var menu = $('#menuSecondary');
+		dropdown.addClass('show');
+		menu.addClass('show');
+	});
+
+	$('#dropdownSecondary').on('mouseout', function(e) {
+		var dropdown = $(e.target);
+		var menu = $('#menuSecondary');
+		setTimeout(function () {
+		if ( !($('#dropdownSecondary').is(':hover')) ) {
+			dropdown.removeClass('show');
+			menu.removeClass('show');
 		}
-    	}
-	
-    }, 300);
-});
-
-$('#dropdownSecondary').on('mouseover', function(e) {
-    clearTimeout(masterTimeout);
-    var dropdown = $(e.target);
-    var menu = $('#menuSecondary');
-    dropdown.addClass('show');
-    menu.addClass('show');
-});
-
-$('#dropdownSecondary').on('mouseout', function(e) {
-    var dropdown = $(e.target);
-    var menu = $('#menuSecondary');
-    setTimeout(function () {
-	if ( !($('#dropdownSecondary').is(':hover')) ) {
-	    dropdown.removeClass('show');
-	    menu.removeClass('show');
-	}
-    }, 300);
-});
+		}, 300);
+	});
 
 
 }
